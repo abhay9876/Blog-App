@@ -1,8 +1,11 @@
 const dotenv = require('dotenv')
 dotenv.config();
 const express = require('express')
+const cors = require('cors')
 
 const authRoutes = require('./Routes/authRoutes')
+const { connectDB } = require('./config/connectDB')
+
 
 
 
@@ -21,4 +24,5 @@ app.get('/',(req,res)=>{
 PORT= process.env.PORT
 app.listen(PORT,(req,res)=>{
     console.log(`Server is running at ${PORT}`);
+    connectDB();
 })
